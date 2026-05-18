@@ -1,7 +1,10 @@
+import Header from "../components/header";
+
 export default function HomePage(){
     return(
-       <div>
-            <h1>Welcome to home page</h1>
+       <div className="w-full h-screen flex justify-center " >
+            <Header/>
        </div> 
     )
 }
+
