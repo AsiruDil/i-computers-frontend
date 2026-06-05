@@ -1,34 +1,40 @@
+
 import { useState } from "react"
+import uploadMedia from "../lib/mediaUpload";
 
 export default function TestPage(){
 
-    const[emotion,setEmotion]=useState("🙂");
+
+    const [file,setFile]=useState(null);
+
+    async function handleUpload(){
+      try{
+            const url=await uploadMedia(file)
+            console.log(url)
+      }catch(error){
+        console.log(error)
+      }
+    }
+
+    // function handleUpload(){
+    //  uploadMedia(file).then((url)=>{
+    //     console.log(url)
+    //  }).catch((error)=>{
+    //     console.log(error)
+    //  })
+    // }
+
      
     return(
-        <div className="w-full h-screen flex flex-col justify-center items-center bg-primary text-secondary">
-                <div className="w-[300px] h-[300px] border-[6px] flex justify-center text-[50px] items-center">
-                    {emotion}
-                </div>
-
-              <div className="w-[300px] flex flex-row justify-center">
-                    <button onClick={
-                        ()=>{
-                            setEmotion("😪")
-                        }
-                    } className="bg-accent w-[70px] h-[30px] text-white border-primary">Sad</button>
-                    <button onClick={
-                        ()=>{
-                            setEmotion("😀")
-                        }
-                    } className="bg-accent w-[70px] h-[30px] text-white border-primary">happy</button>
-                    <button onClick={
-                        ()=>{
-                            setEmotion("😤")
-                        }
-                    } className="bg-accent w-[70px] h-[30px] text-white border-primary">Angry</button>
-
-
-              </div>
+        
+        <div className="flex flex-col justify-center items-center">
+                <input onChange={(e)=>{
+                    setFile(e.target.files[0])
+                }} type="file"/>
+                <button onClick={handleUpload} className="bg-secondary text-primary px-4 py-4">upload</button>
         </div>
     )
 }
+
+//https://qdvkvpqzwjshkhqgeisa.supabase.co/rest/v1/
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFkdmt2cHF6d2pzaGtocWdlaXNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkyMTI1NDMsImV4cCI6MjA5NDc4ODU0M30.j6khqtipVi3dTPKi1uUik3T4cGr8UrnEQzb8BhPt_sE 
