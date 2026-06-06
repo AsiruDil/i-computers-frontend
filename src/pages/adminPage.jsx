@@ -6,10 +6,10 @@ export default function AdminPage(){
     return(
        <div className="w-full h-screen flex  items-center bg-accent">
            <div className="w-[300px] h-full bg-accent">
-                <Link to="/admin/" className="block py-2 px-4 hover:bg-gray-700">Orders</Link>
-                <Link to="/admin/products" className="block py-2 px-4 hover:bg-gray-700">Products</Link>
-                <Link to="/admin/users" className="block py-2 px-4 hover:bg-gray-700">Users</Link>
-                <Link to="/admin/reviews" className="block py-2 px-4 hover:bg-gray-700">Reviews</Link>
+                <Link to="/admin/" className="block py-2 px-4 text-white hover:bg-gray-700">Orders</Link>
+                <Link to="/admin/products" className="block py-2 px-4  text-white hover:bg-gray-700">Products</Link>
+                <Link to="/admin/users" className="block py-2 px-4  text-white hover:bg-gray-700">Users</Link>
+                <Link to="/admin/reviews" className="block py-2 px-4  text-white hover:bg-gray-700">Reviews</Link>
            </div>
            <div className="w-[calc(100%-300px)] h-full border-[10px] border-accent rounded-2xl bg-primary">
                 <Routes>
